@@ -1,0 +1,31 @@
+{
+  "id": "builtin.heap-snapshot-viewer",
+  "name": "Heap Snapshot Viewer",
+  "description": "Heap Snapshot Viewer",
+  "browser": "src/heapSnapshotViewerMain.ts",
+  "activation": ["onWebView:builtin.heap-snapshot-viewer"],
+  "languages": [],
+  "webViews": [
+    {
+      "id": "builtin.heap-snapshot-viewer",
+      "rpc": true,
+      "path": "media/index.html",
+      "selector": [".heapsnapshot"],
+      "contentSecurityPolicy": ["default-src 'none'", "script-src 'self'", "style-src 'self'"],
+      "elements": [
+        {
+          "type": "title",
+          "value": "Heapsnapshot Viewer"
+        },
+        {
+          "type": "script",
+          "path": "media/index.js"
+        },
+        {
+          "type": "css",
+          "path": "media/index.css"
+        }
+      ]
+    }
+  ]
+}
