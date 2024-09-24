@@ -1,4 +1,4 @@
-import * as HeapSnapshotWorkerUrl from '../RestClientWorkerUrl/RestClientWorkerUrl.ts'
+import * as RestClientWorkerUrl from '../RestClientWorkerUrl/RestClientWorkerUrl.ts'
 
 const execute = (method, ...params) => {
   return {}
@@ -7,7 +7,7 @@ const execute = (method, ...params) => {
 export const launchRestClientWorker = async () => {
   // @ts-ignore
   const rpc = await vscode.createRpc({
-    url: HeapSnapshotWorkerUrl.heapSnapshotWorkerUrl,
+    url: RestClientWorkerUrl.restClientWorkerUrl,
     name: 'Rest Client Worker',
     execute,
   })
