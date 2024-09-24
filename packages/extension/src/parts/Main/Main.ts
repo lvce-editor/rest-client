@@ -6,12 +6,16 @@ const webViewProvider = {
     // @ts-ignore
     const content = await vscode.readFile(uri)
     await webView.invoke('initialize', content)
+    // @ts-ignore
+    this.webView = webView
   },
   async open(uri, webView) {},
   commands: {
     async handleSubmit(text) {
       const result = await RestClientWorker.invoke('RestClient.execute', text)
-      console.log({ result })
+      // @ts-ignore
+      const webView = webViewProvider.webView
+      await webView.invoke('setOutput', result)
     },
   },
 }

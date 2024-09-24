@@ -42,7 +42,7 @@ const setOutput = (value) => {
   if (!output) {
     throw new Error('output not found')
   }
-  output.textContent = value
+  output.textContent = value.text
 }
 
 const rpc = globalThis.lvceRpc({
