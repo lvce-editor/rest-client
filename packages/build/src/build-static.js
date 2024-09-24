@@ -23,11 +23,11 @@ await cp(path.join(root, 'dist2'), path.join(root, 'dist', commitHash, 'extensio
 
 await replace({
   path: path.join(root, 'dist', commitHash, 'config', 'webExtensions.json'),
-  occurrence: 'src/heapSnapshotViewerMain.ts',
-  replacement: 'dist/heapSnapshotViewerMain.js',
+  occurrence: 'src/restClientMain.ts',
+  replacement: 'dist/restClientMain.js',
 })
 
-const pathPrefix = '/heap-snapshot-viewer'
+const pathPrefix = '/rest-client'
 const webViewsPath = join(root, 'dist', commitHash, 'config', 'webViews.json')
 const extensionJsonPath = join(root, 'dist', commitHash, 'extensions', 'builtin.rest-client', 'extension.json')
 const extensionJsonContent = await readFile(extensionJsonPath, 'utf8')
