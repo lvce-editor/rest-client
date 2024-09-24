@@ -16,7 +16,7 @@ const { commitHash } = await exportStatic({
   root,
 })
 
-await cp(path.join(root, 'dist2'), path.join(root, 'dist', commitHash, 'extensions', 'builtin.heap-snapshot-viewer'), {
+await cp(path.join(root, 'dist2'), path.join(root, 'dist', commitHash, 'extensions', 'builtin.rest-client'), {
   recursive: true,
   force: true,
 })
@@ -29,7 +29,7 @@ await replace({
 
 const pathPrefix = '/heap-snapshot-viewer'
 const webViewsPath = join(root, 'dist', commitHash, 'config', 'webViews.json')
-const extensionJsonPath = join(root, 'dist', commitHash, 'extensions', 'builtin.heap-snapshot-viewer', 'extension.json')
+const extensionJsonPath = join(root, 'dist', commitHash, 'extensions', 'builtin.rest-client', 'extension.json')
 const extensionJsonContent = await readFile(extensionJsonPath, 'utf8')
 const extensionJson = JSON.parse(extensionJsonContent)
 extensionJson.webViews[0].path = `${commitHash}/extensions/${extensionJson.id}/${extensionJson.webViews[0].path}`
