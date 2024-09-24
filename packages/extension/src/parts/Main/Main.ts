@@ -1,5 +1,5 @@
 import * as FilterAggregates from '../FilterAggregates/FilterAggregates.ts'
-import * as HeapSnapshotWorker from '../HeapSnapshotWorker/HeapSnapshotWorker.ts'
+import * as HeapSnapshotWorker from '../RestClientWorker/RestClientWorker.ts'
 
 // TODO for best performance:
 // 1. create heapsnapshot worker
