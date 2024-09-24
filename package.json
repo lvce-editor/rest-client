@@ -1,5 +1,5 @@
 {
-  "name": "builtin.rest-client",
+  "name": "builtin.rest-client-monorepo",
   "version": "0.0.0-dev",
   "description": "",
   "type": "module",

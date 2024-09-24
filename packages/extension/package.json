@@ -1,5 +1,5 @@
 {
-  "name": "builtin.heap-snapshot-viewer",
+  "name": "builtin.rest-client",
   "version": "0.0.0-dev",
   "description": "",
   "main": "src/heapSnapshotViewerMain.ts",

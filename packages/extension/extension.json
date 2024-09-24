@@ -1,21 +1,21 @@
 {
-  "id": "builtin.heap-snapshot-viewer",
-  "name": "Heap Snapshot Viewer",
-  "description": "Heap Snapshot Viewer",
-  "browser": "src/heapSnapshotViewerMain.ts",
-  "activation": ["onWebView:builtin.heap-snapshot-viewer"],
+  "id": "builtin.rest-client",
+  "name": "REST Client",
+  "description": "REST Client",
+  "browser": "src/restClientMain.ts",
+  "activation": ["onWebView:builtin.rest-client"],
   "languages": [],
   "webViews": [
     {
-      "id": "builtin.heap-snapshot-viewer",
+      "id": "builtin.rest-client",
       "rpc": true,
       "path": "media/index.html",
-      "selector": [".heapsnapshot"],
+      "selector": [".rest"],
       "contentSecurityPolicy": ["default-src 'none'", "script-src 'self'", "style-src 'self'"],
       "elements": [
         {
           "type": "title",
-          "value": "Heapsnapshot Viewer"
+          "value": "Rest Client"
         },
         {
           "type": "script",
