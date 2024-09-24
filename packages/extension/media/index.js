@@ -27,6 +27,7 @@ const initialize = (inputValue) => {
 
   const form = document.createElement('form')
   form.append(input, button)
+  form.addEventListener('submit', handleSubmit)
 
   const output = document.createElement('output')
   output.id = 'Output'
