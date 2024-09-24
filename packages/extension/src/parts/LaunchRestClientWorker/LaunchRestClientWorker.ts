@@ -4,7 +4,7 @@ const execute = (method, ...params) => {
   return {}
 }
 
-export const launchResrClientWorker = async () => {
+export const launchRestClientWorker = async () => {
   // @ts-ignore
   const rpc = await vscode.createRpc({
     url: HeapSnapshotWorkerUrl.heapSnapshotWorkerUrl,

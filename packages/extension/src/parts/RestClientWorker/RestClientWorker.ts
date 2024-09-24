@@ -1,6 +1,6 @@
 import * as GetOrCreateWorker from '../GetOrCreateWorker/GetOrCreateWorker.ts'
-import * as LaunchHeapSnapshotWorker from '../LaunchRestClientWorker/LaunchRestClientWorker.ts'
+import * as LaunchRestClientWorker from '../LaunchRestClientWorker/LaunchRestClientWorker.ts'
 
-const { invoke } = GetOrCreateWorker.getOrCreateWorker(LaunchHeapSnapshotWorker.launchHeapSnapshotWorker)
+const { invoke } = GetOrCreateWorker.getOrCreateWorker(LaunchRestClientWorker.launchRestClientWorker)
 
 export { invoke }
