@@ -1,6 +1,8 @@
 // TODO use virtual dom in  worker
 
-const handleSubmit = async () => {
+const handleSubmit = async (event) => {
+  console.log('handle submit')
+  event.preventDefault()
   const input = document.getElementById('Input')
   if (!input) {
     throw new Error('input not found')
@@ -25,6 +27,7 @@ const initialize = (inputValue) => {
 
   const form = document.createElement('form')
   form.append(input, button)
+  form.addEventListener('submit', handleSubmit)
 
   const output = document.createElement('output')
   output.id = 'Output'
