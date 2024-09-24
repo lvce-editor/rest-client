@@ -1,0 +1,31 @@
+{
+  "id": "builtin.rest-client",
+  "name": "REST Client",
+  "description": "REST Client",
+  "browser": "src/restClientMain.ts",
+  "activation": ["onWebView:builtin.rest-client"],
+  "languages": [],
+  "webViews": [
+    {
+      "id": "builtin.rest-client",
+      "rpc": true,
+      "path": "media/index.html",
+      "selector": [".rest"],
+      "contentSecurityPolicy": ["default-src 'none'", "script-src 'self'", "style-src 'self'"],
+      "elements": [
+        {
+          "type": "title",
+          "value": "Rest Client"
+        },
+        {
+          "type": "script",
+          "path": "media/index.js"
+        },
+        {
+          "type": "css",
+          "path": "media/index.css"
+        }
+      ]
+    }
+  ]
+}
