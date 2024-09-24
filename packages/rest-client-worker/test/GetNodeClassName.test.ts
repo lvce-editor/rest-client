@@ -1,5 +1,5 @@
 import { expect, test } from '@jest/globals'
-import * as GetNodeClassName from '../src/parts/GetNodeClassName/GetNodeClassName.js'
+import * as GetNodeClassName from '../src/parts/GetNodeClassName/GetNodeClassName.ts'
 
 test('hidden node', () => {
   const nodeType = 'hidden'

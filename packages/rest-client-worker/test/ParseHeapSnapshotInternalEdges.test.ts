@@ -1,5 +1,5 @@
 import { expect, test } from '@jest/globals'
-import * as ParseHeapSnapshotInternalEdges from '../src/parts/ParseHeapSnapshotInternalEdges/ParseHeapSnapshotInternalEdges.js'
+import * as ParseHeapSnapshotInternalEdges from '../src/parts/ParseHeapSnapshotInternalEdges/ParseHeapSnapshotInternalEdges.ts'
 
 test('parseHeapSnapshotInternalEdges', () => {
   const nodes = new Uint32Array(

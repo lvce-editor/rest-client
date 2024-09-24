@@ -1,5 +1,5 @@
 import { expect, test } from '@jest/globals'
-import * as GetAggregatesByClassNameInternal from '../src/parts/GetAggregatesByClassNameInternal/GetAggregatesByClassNameInternal.js'
+import * as GetAggregatesByClassNameInternal from '../src/parts/GetAggregatesByClassNameInternal/GetAggregatesByClassNameInternal.ts'
 
 const nodeFields = ['type', 'name', 'id', 'self_size', 'edge_count', 'trace_node_id', 'detachedness']
 const nodeTypes = [
