@@ -5,7 +5,9 @@ const webViewProvider = {
   },
   async open(uri, webView) {},
   commands: {
-    async handleInput(text) {},
+    async handleSubmit(text) {
+      console.log({ text })
+    },
   },
 }
 

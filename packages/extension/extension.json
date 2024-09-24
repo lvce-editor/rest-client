@@ -11,6 +11,7 @@
       "rpc": true,
       "path": "media/index.html",
       "selector": [".rest"],
+      "sandbox": ["allow-forms"],
       "contentSecurityPolicy": ["default-src 'none'", "script-src 'self'", "style-src 'self'"],
       "elements": [
         {
