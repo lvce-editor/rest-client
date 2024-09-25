@@ -5,7 +5,8 @@ const webViewProvider = {
   async create(webView, uri) {
     // @ts-ignore
     const content = await vscode.readFile(uri)
-    await webView.invoke('initialize', content)
+    const [method, url] = content.split(' ')
+    await webView.invoke('initialize', method, url)
     // @ts-ignore
     this.webView = webView
   },
