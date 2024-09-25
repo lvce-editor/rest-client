@@ -1,5 +1,4 @@
-export const execute = async (input) => {
-  const [method, url] = input.split(' ')
+export const execute = async (method, url) => {
   const response = await fetch(url, {
     method,
   })

@@ -10,7 +10,8 @@ test('execute - error - unknown scheme', async () => {
   const worker = await testWorker({
     execMap,
   })
-  const input = 'GET test://example.com'
+  const method = 'GET'
+  const url = 'test://example.com'
 
-  await expect(worker.execute('RestClient.execute', input)).rejects.toThrow(new Error('fetch failed'))
+  await expect(worker.execute('RestClient.execute', method, url)).rejects.toThrow(new Error('fetch failed'))
 })
