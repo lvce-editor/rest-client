@@ -53,7 +53,7 @@ const setOutput = (value) => {
     throw new Error('output not found')
   }
   const { text, serializedHeaders } = value
-  console.log({ serializedHeaders })
+  output.textContent = ''
   const outputText = document.createElement('span')
   outputText.textContent = text
   const headersOutput = document.createElement('div')
