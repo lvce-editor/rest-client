@@ -52,7 +52,17 @@ const setOutput = (value) => {
   if (!output) {
     throw new Error('output not found')
   }
-  output.textContent = value.text
+  const { text, serializedHeaders } = value
+  console.log({ serializedHeaders })
+  const outputText = document.createElement('span')
+  outputText.textContent = text
+  const headersOutput = document.createElement('div')
+  for (const item of serializedHeaders) {
+    const $Node = document.createElement('div')
+    $Node.append(`${item.key}: ${item.value}`)
+    headersOutput.append($Node)
+  }
+  output.append(headersOutput, outputText)
 }
 
 const rpc = globalThis.lvceRpc({
