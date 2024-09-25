@@ -11,8 +11,8 @@ const webViewProvider = {
   },
   async open(uri, webView) {},
   commands: {
-    async handleSubmit(text) {
-      const result = await RestClientWorker.invoke('RestClient.execute', text)
+    async handleSubmit(method, url) {
+      const result = await RestClientWorker.invoke('RestClient.execute', method, url)
       // @ts-ignore
       const webView = webViewProvider.webView
       await webView.invoke('setOutput', result)
