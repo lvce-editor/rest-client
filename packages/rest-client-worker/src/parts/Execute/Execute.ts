@@ -1,10 +1,4 @@
-const serializeHeaders = (headers: Headers) => {
-  const serialized: any[] = []
-  for (const [key, value] of Object.entries(headers)) {
-    serialized.push({ key, value })
-  }
-  return serialized
-}
+import * as SerializeHeaders from '../SerializeHeaders/SerializeHeaders.ts'
 
 export const execute = async (method, url) => {
   const response = await fetch(url, {
@@ -12,7 +6,7 @@ export const execute = async (method, url) => {
   })
   const text = await response.text()
   const { headers } = response
-  const serializedHeaders = serializeHeaders(headers)
+  const serializedHeaders = SerializeHeaders.serializeHeaders(headers)
   return {
     text,
     serializedHeaders,
