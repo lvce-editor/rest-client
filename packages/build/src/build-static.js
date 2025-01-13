@@ -12,7 +12,8 @@ await cp(path.join(root, 'dist'), path.join(root, 'dist2'), {
 })
 
 const { commitHash } = await exportStatic({
-  extensionPath: 'packages/extension',
+  extensionPath: 'dist2',
+  testPath: 'packages/e2e',
   root,
 })
 
@@ -20,21 +21,6 @@ await cp(path.join(root, 'dist2'), path.join(root, 'dist', commitHash, 'extensio
   recursive: true,
   force: true,
 })
-
-await replace({
-  path: path.join(root, 'dist', commitHash, 'config', 'webExtensions.json'),
-  occurrence: 'src/restClientMain.ts',
-  replacement: 'dist/restClientMain.js',
-})
-
-const pathPrefix = '/rest-client'
-const webViewsPath = join(root, 'dist', commitHash, 'config', 'webViews.json')
-const extensionJsonPath = join(root, 'dist', commitHash, 'extensions', 'builtin.rest-client', 'extension.json')
-const extensionJsonContent = await readFile(extensionJsonPath, 'utf8')
-const extensionJson = JSON.parse(extensionJsonContent)
-extensionJson.webViews[0].path = `${commitHash}/extensions/${extensionJson.id}/${extensionJson.webViews[0].path}`
-extensionJson.webViews[0].remotePath = `${pathPrefix}/${commitHash}/extensions/${extensionJson.id}`
-await writeFile(webViewsPath, JSON.stringify(extensionJson.webViews, null, 2) + '\n')
 
 const fileMapPath = join(root, 'dist', commitHash, 'config', 'fileMap.json')
 await writeFile(fileMapPath, JSON.stringify(['/playground/index.rest']))
