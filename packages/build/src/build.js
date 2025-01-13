@@ -31,13 +31,6 @@ fs.cpSync(join(restClientWorker, 'src'), join(root, 'dist', 'rest-client-worker'
   recursive: true,
 })
 
-const workerUrlFilePath = path.join(root, 'dist', 'src', 'parts', 'RestClientWorkerUrl', 'RestClientWorkerUrl.ts')
-await replace({
-  path: workerUrlFilePath,
-  occurrence: 'src/restClientWorkerMain.ts',
-  replacement: 'dist/restClientWorkerMain.js',
-})
-
 await replace({
   path: join(root, 'dist', 'extension.json'),
   occurrence: 'src/restClientMain.ts',
