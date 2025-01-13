@@ -44,6 +44,12 @@ await replace({
   replacement: 'dist/restClientMain.js',
 })
 
+await replace({
+  path: join(root, 'dist', 'extension.json'),
+  occurrence: '../rest-client-worker/src/restClientWorkerMain.ts',
+  replacement: '../rest-client-worker/dist/restClientWorkerMain.js',
+})
+
 await bundleJs(
   join(root, 'dist', 'rest-client-worker', 'src', 'restClientWorkerMain.ts'),
   join(root, 'dist', 'rest-client-worker', 'dist', 'restClientWorkerMain.js'),
