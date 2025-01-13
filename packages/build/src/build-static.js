@@ -37,6 +37,6 @@ extensionJson.webViews[0].remotePath = `${pathPrefix}/${commitHash}/extensions/$
 await writeFile(webViewsPath, JSON.stringify(extensionJson.webViews, null, 2) + '\n')
 
 const fileMapPath = join(root, 'dist', commitHash, 'config', 'fileMap.json')
-await writeFile(fileMapPath, JSON.stringify('/playground/index.rest'))
+await writeFile(fileMapPath, JSON.stringify(['/playground/index.rest']))
 
 await writeFile(join(root, 'dist', commitHash, 'playground', 'index.rest'), `GET https://example.com`)
