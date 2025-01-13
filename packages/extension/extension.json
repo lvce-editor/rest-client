@@ -5,6 +5,15 @@
   "browser": "src/restClientMain.ts",
   "activation": ["onWebView:builtin.rest-client"],
   "languages": [],
+  "rpc": [
+    {
+      "id": "builtin.rest-client.rest-client-worker",
+      "type": "web-worker",
+      "name": "Rest Client Worker",
+      "url": "../rest-client-worler/src/restClientWorkerMain.ts",
+      "contentSecurityPolicy": ["default-src 'none'"]
+    }
+  ],
   "webViews": [
     {
       "id": "builtin.rest-client",
