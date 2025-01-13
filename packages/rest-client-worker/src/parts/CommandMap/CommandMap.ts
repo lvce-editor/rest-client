@@ -5,7 +5,7 @@ import * as WrapCommand from '../WrapCommand/WrapCommand.ts'
 
 export const commandMap = {
   // new
-  execute: WrapCommand.wrapCommand(Execute2.execute2),
+  handleSubmit: WrapCommand.wrapCommand(Execute2.execute2),
   'Webview.create': Create2.create2,
 
   // old
