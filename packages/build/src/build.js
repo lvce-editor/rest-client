@@ -38,13 +38,6 @@ await replace({
   replacement: 'dist/restClientWorkerMain.js',
 })
 
-const assetDirPath = path.join(root, 'dist', 'src', 'parts', 'AssetDir', 'AssetDir.ts')
-await replace({
-  path: assetDirPath,
-  occurrence: '../../../../',
-  replacement: '../',
-})
-
 await replace({
   path: join(root, 'dist', 'extension.json'),
   occurrence: 'src/restClientMain.ts',
