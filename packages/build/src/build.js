@@ -46,9 +46,10 @@ await replace({
 await bundleJs(
   join(root, 'dist', 'rest-client-worker', 'src', 'restClientWorkerMain.ts'),
   join(root, 'dist', 'rest-client-worker', 'dist', 'restClientWorkerMain.js'),
+  false,
 )
 
-await bundleJs(join(root, 'dist', 'src', 'restClientMain.ts'), join(root, 'dist', 'dist', 'restClientMain.js'))
+await bundleJs(join(root, 'dist', 'src', 'restClientMain.ts'), join(root, 'dist', 'dist', 'restClientMain.js'), false)
 
 await packageExtension({
   highestCompression: true,
