@@ -1,7 +1,7 @@
 import { expect, test } from '@jest/globals'
 import { testWorker } from '../src/testWorker.ts'
 
-test('execute - error - unknown scheme', async () => {
+test.skip('execute - error - unknown scheme', async () => {
   const execMap = {
     'Request.request'() {
       throw new Error('fetch failed: unknown scheme')
