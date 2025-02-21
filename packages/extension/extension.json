@@ -10,7 +10,7 @@
       "id": "builtin.rest-client.rest-client-worker",
       "type": "web-worker-2",
       "name": "Rest Client Worker",
-      "url": "../rest-client-worker/src/restClientWorkerMain.ts",
+      "url": "../rest-client-worker/dist/restClientWorkerMain.js",
       "contentSecurityPolicy": ["default-src 'none'"]
     }
   ],
