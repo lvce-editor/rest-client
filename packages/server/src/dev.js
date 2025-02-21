@@ -24,33 +24,14 @@ const main = () => {
       '--external:node:worker_threads',
       '--bundle',
       '--watch',
-      'packages/chat-worker/src/chatWorkerMain.ts',
-      '--outfile=packages/chat-worker/dist/chatWorkerMain.js',
+      'packages/rest-client-worker/src/restClientWorkerMain.ts',
+      '--outfile=packages/rest-client-worker/dist/restClientWorkerMain.js',
     ],
     {
       cwd: root,
       stdio: 'inherit',
     },
   )
-  const child3 = spawn(
-    esbuildPath,
-    [
-      '--format=esm',
-      '--bundle',
-      '--external:node:buffer',
-      '--external:electron',
-      '--external:ws',
-      '--external:node:worker_threads',
-      '--bundle',
-      '--watch',
-      'packages/network-worker/src/networkWorkerMain.ts',
-      '--outfile=packages/network-worker/dist/networkWorkerMain.js',
-    ],
-    {
-      cwd: root,
-    },
-  )
-  // child.stdout.pipe(process.stdout)
 }
 
 main()
