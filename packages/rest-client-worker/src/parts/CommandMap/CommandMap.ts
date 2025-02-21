@@ -6,7 +6,7 @@ import * as WrapCommand from '../WrapCommand/WrapCommand.ts'
 export const commandMap = {
   // new
   handleSubmit: WrapCommand.wrapCommand(Execute2.execute2),
-  'Webview.create': Create2.create2,
+  'WebView.create': Create2.create2,
 
   // old
   'RestClient.execute': Execute.execute,
