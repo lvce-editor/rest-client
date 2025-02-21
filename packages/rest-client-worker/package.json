@@ -27,5 +27,8 @@
         }
       ]
     }
+  },
+  "devDependencies": {
+    "@lvce-editor/extension-host-sub-worker": "^3.14.0"
   }
 }

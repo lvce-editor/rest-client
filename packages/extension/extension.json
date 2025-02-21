@@ -8,7 +8,7 @@
   "rpc": [
     {
       "id": "builtin.rest-client.rest-client-worker",
-      "type": "web-worker",
+      "type": "web-worker-2",
       "name": "Rest Client Worker",
       "url": "../rest-client-worker/src/restClientWorkerMain.ts",
       "contentSecurityPolicy": ["default-src 'none'"]
