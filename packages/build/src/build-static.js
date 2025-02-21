@@ -21,7 +21,7 @@ const { commitHash } = await exportStatic({
   root,
 })
 
-await cp(path.join(root, 'dist2'), path.join(root, 'dist', commitHash, 'extensions', 'builtin.chat'), {
+await cp(path.join(root, 'dist2'), path.join(root, 'dist', commitHash, 'extensions', 'builtin.rest-client'), {
   recursive: true,
   force: true,
 })
