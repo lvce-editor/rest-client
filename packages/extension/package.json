@@ -2,7 +2,6 @@
   "name": "builtin.rest-client",
   "version": "0.0.0-dev",
   "description": "",
-  "keywords": [],
   "author": "",
   "type": "module",
   "main": "src/restClientMain.ts",
@@ -26,6 +25,5 @@
         }
       ]
     }
-  },
-  "devDependencies": {}
+  }
 }
