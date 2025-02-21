@@ -2,15 +2,14 @@
   "name": "rest-client-worker",
   "version": "0.0.0-dev",
   "description": "",
-  "main": "src/restClientWorkerMain.ts",
+  "license": "MIT",
+  "author": "",
   "type": "module",
+  "main": "src/restClientWorkerMain.ts",
   "scripts": {
     "test": "node --unhandled-rejections=warn --experimental-vm-modules ../../node_modules/jest/bin/jest.js --detectOpenHandles --forceExit",
     "test:watch": "node --unhandled-rejections=warn --experimental-vm-modules ../../node_modules/jest/bin/jest.js --watch"
   },
-  "keywords": [],
-  "author": "",
-  "license": "MIT",
   "jest": {
     "injectGlobals": false,
     "extensionsToTreatAsEsm": [
