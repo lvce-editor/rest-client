@@ -1,1 +1,3 @@
-export * from './parts/Main/Main.ts'
+import * as Main from './parts/Main/Main.ts'
+
+Main.main()
