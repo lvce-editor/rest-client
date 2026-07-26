@@ -8,7 +8,7 @@ export const execute = async (method, url) => {
   const { headers } = response
   const serializedHeaders = SerializeHeaders.serializeHeaders(headers)
   return {
-    text,
     serializedHeaders,
+    text,
   }
 }

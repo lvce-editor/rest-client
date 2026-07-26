@@ -9,7 +9,10 @@ const workerPath = join(root, 'packages', 'rest-client-worker', 'src', 'restClie
 
 export const startWorker = async (rpc) => {
   const workerUrl = pathToFileURL(workerPath).toString()
-  globalThis.rpc = rpc
+  Object.defineProperty(globalThis, 'rpc', {
+    configurable: true,
+    value: rpc,
+  })
   const module = await import(workerUrl)
   const { commandMap } = module
   return {

@@ -1,8 +1,9 @@
 {
   "name": "builtin.rest-client",
   "version": "0.0.0-dev",
-  "description": "",
-  "author": "",
+  "description": "REST client extension for Lvce Editor",
+  "license": "MIT",
+  "author": "Lvce Editor",
   "type": "module",
   "main": "dist/restClientMain.js",
   "scripts": {

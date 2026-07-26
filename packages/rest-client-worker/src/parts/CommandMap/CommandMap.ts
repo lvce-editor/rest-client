@@ -10,9 +10,9 @@ const saveState = () => {
 export const commandMap = {
   // new
   handleSubmit: WrapCommand.wrapCommand(Execute2.execute2),
-  'WebView.create': Create2.create2,
-  'WebView.saveState': saveState,
-
   // old
   'RestClient.execute': Execute.execute,
+  'WebView.create': Create2.create2,
+
+  'WebView.saveState': saveState,
 }

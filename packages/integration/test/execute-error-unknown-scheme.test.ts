@@ -1,6 +1,7 @@
 import { expect, test } from '@jest/globals'
 import { testWorker } from '../src/testWorker.ts'
 
+// eslint-disable-next-line jest/no-disabled-tests
 test.skip('execute - error - unknown scheme', async () => {
   const execMap = {
     'Request.request'() {

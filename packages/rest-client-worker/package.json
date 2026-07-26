@@ -1,9 +1,9 @@
 {
   "name": "rest-client-worker",
   "version": "0.0.0-dev",
-  "description": "",
+  "description": "REST client worker for Lvce Editor",
   "license": "MIT",
-  "author": "",
+  "author": "Lvce Editor",
   "type": "module",
   "main": "src/restClientWorkerMain.ts",
   "scripts": {
