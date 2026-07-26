@@ -4,10 +4,13 @@
   "description": "",
   "author": "",
   "type": "module",
-  "main": "src/restClientMain.ts",
+  "main": "dist/restClientMain.js",
   "scripts": {
     "#test": "node --unhandled-rejections=warn --experimental-vm-modules ../../node_modules/jest/bin/jest.js --detectOpenHandles --forceExit",
     "#test:watch": "node --unhandled-rejections=warn --experimental-vm-modules ../../node_modules/jest/bin/jest.js --watch"
+  },
+  "devDependencies": {
+    "@lvce-editor/api": "^8.64.0"
   },
   "jest": {
     "injectGlobals": false,

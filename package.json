@@ -10,8 +10,11 @@
   ],
   "scripts": {
     "build": "node packages/build/src/build-static.js",
+    "build:extension": "node packages/build/src/build.js",
     "dev": "node ./packages/server/src/dev.js",
+    "pree2e": "npm run build:extension",
     "e2e": "npm run e2e --workspace=e2e",
+    "pree2e:headless": "npm run build:extension",
     "e2e:headless": "npm run e2e:headless --workspace=e2e",
     "lint": "echo ok",
     "test": "npm test --workspaces --if-present",

@@ -2,7 +2,9 @@
   "id": "builtin.rest-client",
   "name": "REST Client",
   "description": "REST Client",
-  "browser": "src/restClientMain.ts",
+  "browser": "dist/restClientMain.js",
+  "isolated": true,
+  "contentSecurityPolicy": ["default-src 'none'", "script-src 'self'"],
   "activation": ["onWebView:builtin.rest-client"],
   "languages": [],
   "rpc": [
