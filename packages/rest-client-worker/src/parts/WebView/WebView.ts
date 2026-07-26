@@ -1,5 +1,5 @@
 export interface WebView {
-  readonly port: any
   readonly method: string
+  readonly port: any
   readonly url: string
 }

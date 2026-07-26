@@ -15,10 +15,10 @@ const getInitialCode = (content: string) => {
   }
 }
 
-export const create2 = async ({ port, savedState, webViewId, uri }) => {
+export const create2 = async ({ port, savedState, uri, webViewId }) => {
   // TODO avoid global variable
   // @ts-ignore
-  const rpc = globalThis.rpc
+  const { rpc } = globalThis
   const content = await rpc.invoke('WebView.readFile', uri)
   const { method, url } = getInitialCode(content)
   Create.create(id, port, method, uri)
