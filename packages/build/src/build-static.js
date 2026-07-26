@@ -28,20 +28,10 @@ await cp(path.join(root, 'dist2'), path.join(root, 'dist', commitHash, 'extensio
 
 await replace({
   path: path.join(root, 'dist', commitHash, 'config', 'webExtensions.json'),
-  occurrence: 'src/restClientMain.ts',
-  replacement: 'dist/restClientMain.js',
-})
-await replace({
-  path: path.join(root, 'dist', commitHash, 'config', 'webExtensions.json'),
-  occurrence: '../rest-client-worker/src/restClientWorkerMain.ts',
+  occurrence: '../rest-client-worker/dist/restClientWorkerMain.js',
   replacement: './rest-client-worker/dist/restClientWorkerMain.js',
 })
 
-await replace({
-  path: path.join(root, 'dist', commitHash, 'config', 'extensions.json'),
-  occurrence: 'src/restClientMain.ts',
-  replacement: 'dist/restClientMain.js',
-})
 await replace({
   path: path.join(root, 'dist', commitHash, 'config', 'extensions.json'),
   occurrence: '../rest-client-worker/dist/restClientWorkerMain.js',
