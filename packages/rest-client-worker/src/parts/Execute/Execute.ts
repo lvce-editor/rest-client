@@ -1,6 +1,6 @@
 import * as SerializeHeaders from '../SerializeHeaders/SerializeHeaders.ts'
 
-export const execute = async (method, url) => {
+export const execute = async (method: string, url: string) => {
   const response = await fetch(url, {
     method,
   })
@@ -9,6 +9,8 @@ export const execute = async (method, url) => {
   const serializedHeaders = SerializeHeaders.serializeHeaders(headers)
   return {
     serializedHeaders,
+    status: response.status,
+    statusText: response.statusText,
     text,
   }
 }
