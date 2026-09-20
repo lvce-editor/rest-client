@@ -25,7 +25,7 @@ const main = () => {
       '--bundle',
       '--watch',
       'packages/rest-client-worker/src/restClientWorkerMain.ts',
-      '--outfile=packages/rest-client-worker/dist/restClientWorkerMain.js',
+      '--outfile=packages/extension/dist/restClientWorkerMain.js',
     ],
     {
       cwd: root,

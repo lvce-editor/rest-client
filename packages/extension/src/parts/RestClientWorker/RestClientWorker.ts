@@ -18,23 +18,15 @@ const state: {
 
 const getRpc = (): ReturnType<typeof createRpc> => {
   state.rpcPromise ||= createRpc({
-    contentSecurityPolicy: "default-src 'none'; script-src 'self'; connect-src * data:",
     name: 'REST Client Worker',
-    url: new URL('../rest-client-worker/dist/restClientWorkerMain.js', import.meta.url).href,
+    url: new URL('restClientWorkerMain.js', import.meta.url).href,
   })
   return state.rpcPromise
 }
 
 export const executeRequest = async (method: string, url: string): Promise<RestClientResponse> => {
-  return Promise.race([
-    (async () => {
-      const rpc = await getRpc()
-      return rpc.invoke('RestClient.execute', method, url)
-    })(),
-    new Promise<RestClientResponse>((_resolve, reject) => {
-      globalThis.setTimeout(() => reject(new Error('REST client worker timed out')), 100)
-    }),
-  ])
+  const rpc = await getRpc()
+  return rpc.invoke('RestClient.execute', method, url)
 }
 
 export const dispose = async (): Promise<void> => {

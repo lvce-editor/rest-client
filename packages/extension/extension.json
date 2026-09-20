@@ -4,9 +4,8 @@
   "description": "REST Client",
   "browser": "dist/restClientMain.js",
   "isolated": true,
-  "contentSecurityPolicy": ["default-src 'none'", "script-src 'self'"],
+  "contentSecurityPolicy": ["default-src 'none'", "script-src 'self'", "connect-src https: http://localhost:* http://127.0.0.1:*"],
   "activation": ["onView:builtin.rest-client"],
-  "languages": [],
   "views": [
     {
       "id": "builtin.rest-client",

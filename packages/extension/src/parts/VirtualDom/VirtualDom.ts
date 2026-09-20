@@ -41,10 +41,11 @@ export const button = (name: string, label: string, className: string, disabled 
 
 export const input = (name: string, value: string): TreeNode =>
   node(VirtualDomElements.Input, {
+    'aria-label': 'Request URL',
     className: 'RestClientUrlInput',
+    inputType: 'url',
     name,
     onInput: 'handleInput',
-    type: 'url',
     value,
   })
 
@@ -52,12 +53,13 @@ export const select = (name: string, value: string, options: readonly string[]):
   node(
     VirtualDomElements.Select,
     {
+      'aria-label': 'Request method',
       className: 'RestClientMethodSelect',
       name,
-    onInput: 'handleInput',
+      onInput: 'handleInput',
       value,
     },
-    options.map((option) => node(VirtualDomElements.Option, { value: option }, [textNode(option)])),
+    options.map((option) => node(VirtualDomElements.Option, { selected: option === value, value: option }, [textNode(option)])),
   )
 
 export const flatten = (tree: TreeNode): readonly VirtualDomNode[] => [tree.node, ...tree.children.flatMap(flatten)]

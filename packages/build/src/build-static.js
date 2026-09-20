@@ -1,5 +1,4 @@
-import { replace } from '@lvce-editor/package-extension'
-import { cp, readdir, readFile, rm, writeFile } from 'node:fs/promises'
+import { cp, writeFile } from 'node:fs/promises'
 import path, { join } from 'node:path'
 import { root } from './root.js'
 import { pathToFileURL } from 'node:url'
@@ -25,26 +24,6 @@ await cp(path.join(root, 'dist2'), path.join(root, 'dist', commitHash, 'extensio
   recursive: true,
   force: true,
 })
-
-await replace({
-  path: path.join(root, 'dist', commitHash, 'config', 'webExtensions.json'),
-  occurrence: '../rest-client-worker/dist/restClientWorkerMain.js',
-  replacement: './rest-client-worker/dist/restClientWorkerMain.js',
-})
-
-await replace({
-  path: path.join(root, 'dist', commitHash, 'config', 'extensions.json'),
-  occurrence: '../rest-client-worker/dist/restClientWorkerMain.js',
-  replacement: './rest-client-worker/dist/restClientWorkerMain.js',
-})
-const pathPrefix = '/rest-client'
-const webViewsPath = join(root, 'dist', commitHash, 'config', 'webViews.json')
-const extensionJsonPath = join(root, 'dist', commitHash, 'extensions', 'builtin.rest-client', 'extension.json')
-const extensionJsonContent = await readFile(extensionJsonPath, 'utf8')
-const extensionJson = JSON.parse(extensionJsonContent)
-extensionJson.webViews[0].path = `${commitHash}/extensions/${extensionJson.id}/${extensionJson.webViews[0].path}`
-extensionJson.webViews[0].remotePath = `${pathPrefix}/${commitHash}/extensions/${extensionJson.id}`
-await writeFile(webViewsPath, JSON.stringify(extensionJson.webViews, null, 2) + '\n')
 
 const fileMapPath = join(root, 'dist', commitHash, 'config', 'fileMap.json')
 await writeFile(fileMapPath, JSON.stringify(['/playground/index.rest']))

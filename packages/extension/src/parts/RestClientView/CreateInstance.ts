@@ -1,5 +1,5 @@
-import type { VirtualDomNode } from '@lvce-editor/virtual-dom-worker'
 import { readFile, type ViewContext, type ViewEvent, type VirtualDomViewInstance } from '@lvce-editor/api'
+import { VirtualDomElements, type VirtualDomNode } from '@lvce-editor/virtual-dom-worker'
 import { executeRequest, type RestClientResponse } from '../RestClientWorker/RestClientWorker.ts'
 import * as Dom from '../VirtualDom/VirtualDom.ts'
 
@@ -90,7 +90,7 @@ const renderResponse = (response: RestClientResponse | undefined): Dom.TreeNode 
   return Dom.div('RestClientResponse', [
     statusNode,
     Dom.div('RestClientResponseHeaders', response.serializedHeaders.map(renderHeader)),
-    Dom.node(51, { className: 'RestClientResponseBody' }, [Dom.textNode(response.text)]),
+    Dom.node(VirtualDomElements.Pre, { className: 'RestClientResponseBody' }, [Dom.textNode(response.text)]),
   ])
 }
 
@@ -138,7 +138,7 @@ export const createInstanceWithDependencies = async (
     if (!context?.requestRerender || disposed) {
       return
     }
-    globalThis.setTimeout(() => void context.requestRerender(), 0)
+    void context.requestRerender()
   }
 
   return {
@@ -157,7 +157,7 @@ export const createInstanceWithDependencies = async (
         state.method = event.value
         return
       }
-      if (event.type !== 'click' || (event.name !== 'run' && event.name !== undefined)) {
+      if (event.type !== 'click' || event.name !== 'run' || !state.url) {
         return
       }
       const currentRequestId = ++requestId
@@ -167,9 +167,12 @@ export const createInstanceWithDependencies = async (
       requestRerender()
       void (async () => {
         try {
-          state.response = await dependencies.executeRequest(state.method, state.url)
+          const response = await dependencies.executeRequest(state.method, state.url)
+          if (currentRequestId === requestId && !disposed) {
+            state.response = response
+          }
         } catch (requestError) {
-          if (currentRequestId === requestId) {
+          if (currentRequestId === requestId && !disposed) {
             state.error = getErrorMessage(requestError)
           }
         }
