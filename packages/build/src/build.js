@@ -1,4 +1,4 @@
-import { packageExtension, bundleJs, replace } from '@lvce-editor/package-extension'
+import { packageExtension, bundleJs } from '@lvce-editor/package-extension'
 import { build } from 'esbuild'
 import fs, { readFileSync } from 'node:fs'
 import path, { join } from 'node:path'
@@ -9,11 +9,9 @@ const restClientWorker = path.join(root, 'packages', 'rest-client-worker')
 
 fs.rmSync(join(root, 'dist'), { recursive: true, force: true })
 fs.rmSync(join(extension, 'dist'), { recursive: true, force: true })
-fs.rmSync(join(restClientWorker, 'dist'), { recursive: true, force: true })
 
 fs.mkdirSync(path.join(root, 'dist'))
 fs.mkdirSync(path.join(extension, 'dist'))
-fs.mkdirSync(path.join(restClientWorker, 'dist'))
 
 const packageJson = JSON.parse(readFileSync(join(extension, 'package.json')).toString())
 delete packageJson.xo
@@ -31,12 +29,9 @@ fs.cpSync(join(extension, 'media'), join(root, 'dist', 'media'), {
 
 await bundleJs(
   join(restClientWorker, 'src', 'restClientWorkerMain.ts'),
-  join(restClientWorker, 'dist', 'restClientWorkerMain.js'),
+  join(extension, 'dist', 'restClientWorkerMain.js'),
   false,
 )
-fs.cpSync(join(restClientWorker, 'dist'), join(root, 'dist', 'rest-client-worker', 'dist'), {
-  recursive: true,
-})
 
 await build({
   bundle: true,
@@ -49,12 +44,6 @@ await build({
 })
 fs.cpSync(join(extension, 'dist'), join(root, 'dist', 'dist'), {
   recursive: true,
-})
-
-await replace({
-  path: join(root, 'dist', 'extension.json'),
-  occurrence: '../rest-client-worker/dist/restClientWorkerMain.js',
-  replacement: './rest-client-worker/dist/restClientWorkerMain.js',
 })
 
 await packageExtension({

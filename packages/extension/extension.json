@@ -4,39 +4,18 @@
   "description": "REST Client",
   "browser": "dist/restClientMain.js",
   "isolated": true,
-  "contentSecurityPolicy": ["default-src 'none'", "script-src 'self'"],
-  "activation": ["onWebView:builtin.rest-client"],
-  "languages": [],
-  "rpc": [
-    {
-      "id": "builtin.rest-client.rest-client-worker",
-      "type": "web-worker-2",
-      "name": "Rest Client Worker",
-      "url": "../rest-client-worker/dist/restClientWorkerMain.js",
-      "contentSecurityPolicy": ["default-src 'none'"]
-    }
-  ],
-  "webViews": [
+  "contentSecurityPolicy": ["default-src 'none'", "script-src 'self'", "connect-src https: http://localhost:* http://127.0.0.1:*"],
+  "activation": ["onView:builtin.rest-client"],
+  "views": [
     {
       "id": "builtin.rest-client",
-      "rpc": "builtin.rest-client.rest-client-worker",
+      "title": "REST Client",
+      "displayName": "REST Client",
+      "kind": "virtualDom",
+      "type": "preview",
       "selector": [".rest"],
-      "sandbox": ["allow-forms"],
-      "contentSecurityPolicy": ["default-src 'none'", "script-src 'self'", "style-src 'self'"],
-      "elements": [
-        {
-          "type": "title",
-          "value": "Rest Client"
-        },
-        {
-          "type": "script",
-          "path": "media/index.js"
-        },
-        {
-          "type": "css",
-          "path": "media/index.css"
-        }
-      ]
+      "css": "media/rest-client.css",
+      "showSideBarHeader": false
     }
   ]
 }

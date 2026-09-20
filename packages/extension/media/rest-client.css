@@ -1,0 +1,30 @@
+.RestClient {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 16px;
+}
+
+.RestClientForm {
+  display: flex;
+  gap: 8px;
+}
+
+.RestClientUrlInput {
+  flex: 1;
+}
+
+.RestClientResponseHeaders {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.RestClientResponseBody {
+  white-space: pre-wrap;
+}
+
+.RestClientError {
+  color: var(--vscode-testing-iconFailed, #f14c4c);
+}

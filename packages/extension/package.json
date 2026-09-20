@@ -7,8 +7,7 @@
   "type": "module",
   "main": "dist/restClientMain.js",
   "scripts": {
-    "#test": "node --unhandled-rejections=warn --experimental-vm-modules ../../node_modules/jest/bin/jest.js --detectOpenHandles --forceExit",
-    "#test:watch": "node --unhandled-rejections=warn --experimental-vm-modules ../../node_modules/jest/bin/jest.js --watch"
+    "test": "node --unhandled-rejections=warn --experimental-vm-modules ../../node_modules/jest/bin/jest.js --detectOpenHandles --forceExit"
   },
   "devDependencies": {
     "@lvce-editor/api": "^8.75.0"
