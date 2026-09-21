@@ -7,10 +7,55 @@ on:
 
 jobs:
   pr:
+    name: pr (${{ matrix.os }}, attempt ${{ matrix.attempt }})
     strategy:
       fail-fast: false
       matrix:
-        os: [ubuntu-24.04, macos-15, windows-2025]
+        include:
+          - os: ubuntu-24.04
+            attempt: 1
+          - os: ubuntu-24.04
+            attempt: 2
+          - os: ubuntu-24.04
+            attempt: 3
+          - os: ubuntu-24.04
+            attempt: 4
+          - os: ubuntu-24.04
+            attempt: 5
+          - os: ubuntu-24.04
+            attempt: 6
+          - os: ubuntu-24.04
+            attempt: 7
+          - os: ubuntu-24.04
+            attempt: 8
+          - os: ubuntu-24.04
+            attempt: 9
+          - os: ubuntu-24.04
+            attempt: 10
+          - os: ubuntu-24.04
+            attempt: 11
+          - os: ubuntu-24.04
+            attempt: 12
+          - os: ubuntu-24.04
+            attempt: 13
+          - os: ubuntu-24.04
+            attempt: 14
+          - os: ubuntu-24.04
+            attempt: 15
+          - os: ubuntu-24.04
+            attempt: 16
+          - os: ubuntu-24.04
+            attempt: 17
+          - os: ubuntu-24.04
+            attempt: 18
+          - os: ubuntu-24.04
+            attempt: 19
+          - os: ubuntu-24.04
+            attempt: 20
+          - os: macos-15
+            attempt: 1
+          - os: windows-2025
+            attempt: 1
     runs-on: ${{ matrix.os }}
     timeout-minutes: 15
     steps:
@@ -40,10 +85,20 @@ jobs:
         env:
           PLAYWRIGHT_BROWSERS_PATH: 0
       - name: Run headless test
-        run: npm run e2e:headless
+        shell: bash
+        run: |
+          set -o pipefail
+          npm run e2e:headless 2>&1 | tee e2e.log
         env:
           PLAYWRIGHT_BROWSERS_PATH: 0
       - name: Build static site
         run: node packages/build/src/build-static.js
         env:
           PATH_PREFIX: auto
+      - name: Upload attempt evidence
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: rest-client-${{ matrix.os }}-${{ matrix.attempt }}
+          path: e2e.log
+          if-no-files-found: warn
